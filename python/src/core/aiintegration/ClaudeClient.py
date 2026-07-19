@@ -245,10 +245,13 @@ if __name__ == "__main__":
     send_msg = input("Send message:")
     
     # Send message
-    response = client.send_message(send_msg)
+    response: ClaudeResponse = client.send_message(send_msg)
 
     print(f"Status : {response.status_code}")
     print(f"Success: {response.is_success}")
     print("Answer:")
-    print(response.body["content"][0]["text"])
-
+    
+    if isinstance(response.body, dict):
+        print(response.body["content"][0]["text"])
+    else:
+        print(response.body)
