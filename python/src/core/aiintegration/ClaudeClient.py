@@ -47,7 +47,6 @@ class ClaudeResponse:
     def is_success(self) -> bool:
         return 200 <= self._status_code < 300
     
-
 class ClaudeClient:
     """
     Client class for communicating with Claude API.
@@ -233,3 +232,23 @@ class ClaudeClient:
             status_code=response.status_code,
             body=body
         )
+
+# ========================================================================================
+# Test code
+# ========================================================================================
+if __name__ == "__main__":
+
+    client = ClaudeClient()
+
+    # Set API Key
+    client.api_key = input("Claude API Key:")
+    send_msg = input("Send message:")
+    
+    # Send message
+    response = client.send_message(send_msg)
+
+    print(f"Status : {response.status_code}")
+    print(f"Success: {response.is_success}")
+    print("Answer:")
+    print(response.body["content"][0]["text"])
+
