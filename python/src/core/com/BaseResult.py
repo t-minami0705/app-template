@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class BaseResult:
     """ Base result class for all common classes.
     :author: T.Minami
@@ -8,7 +9,6 @@ class BaseResult:
         Stores the execution result and allows the caller
         to determine success or failure.
     """
-
     def __init__(self):
         self._class_name: str = ""
         self._method_name: str = ""

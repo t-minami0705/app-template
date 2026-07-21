@@ -3,7 +3,7 @@ import inspect
 import cv2
 import numpy as np
 
-from core.com.CommonResponse import CommonResponse
+from core.com.BaseResult import BaseResult
 from dataclasses import dataclass
 
 # ========================================================================================
@@ -162,7 +162,7 @@ class Rectangle:
 # ========================================================================================
 # Rectangle Data Class
 # ========================================================================================
-class RectangleManager(CommonResponse):
+class RectangleManager:
     """ Image processing class
     author: T.Minami
     version: 1.0.0
@@ -183,8 +183,6 @@ class RectangleManager(CommonResponse):
         :param color:Frame color to drow.
         """
         super().__init__()
-        self._class_name = self.__class__.__name__
-        self._method_name = inspect.currentframe().f_code.co_name
         self._rectangles: list[Rectangle] = []
 
     # ========================================================================================
