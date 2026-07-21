@@ -24,9 +24,6 @@ class DbCoreRepository(metaclass=abc.ABCMeta):
         """ DB connection instance """
         raise NotImplementedError()
 
-    # --------------------------------------------------------------------------------------
-    # Insert
-    # --------------------------------------------------------------------------------------
     @abc.abstractmethod
     def insertRecord(self, insertDto:list) -> object:
         """ Insert record """
